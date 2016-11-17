@@ -1,9 +1,9 @@
 FROM golang:wheezy
 
 ENV DIST /go/src/github.com/k8sp/graphviz
-
+RUN sed -i "s#wheezy#jessie#g" /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get install -y graphviz
+RUN apt-get install -y graphviz && dot -v
 
 COPY . $DIST
 RUN cd $DIST && go get ./... && go get .
