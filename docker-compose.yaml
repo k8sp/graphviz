@@ -1,0 +1,8 @@
+version: "2"
+services:
+  graphviz:
+    build: .
+    ports:
+      - "9090"
+    volumes:
+      - ./cache:/cache
