@@ -28,7 +28,7 @@ If we have Docker installed, we can build `graphviz` into a Docker
 image without installing GraphViz and Go:
 
 ```
-go get github.com/k8sp/graphviz
+docker run --rm -it -v $PWD/work:/go golang:wheezy go get github.com/k8sp/graphviz
 cd $GOPATH/src/github.com/k8sp/graphviz
 docker build -t graphviz .
 ```
@@ -47,7 +47,7 @@ We can also run the Docker images built from stable releases by
 DockerHub.com:
 
 ```
-docker run -p 9090:9090 -v /tmp:/cache k8sp/graphviz
+docker run -p 9090:9090 -v /tmp:/cache graphviz
 ```
 
 <!--  LocalWords:  graphviz GraphViz GOPATH addr ci cd
